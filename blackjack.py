@@ -82,16 +82,15 @@ def hit(deck, hand):
 def score(hand):
 
   score = 0
+  num_aces = 0
 
   for i in hand:
     rank = i.split(':')[0]
     if rank in ('J', 'Q', 'K'):
       score += 10
     elif rank == 'A':
-      if score + 11 > 21:
-        score -= 10 # change value of A from 11 to 1
-      else:
-        score += 11
+        score += 11  # need to add in logic to change ace value from 11 to 1 as needed.
+        num_aces += 1
     else:
       score += int(rank)
 
