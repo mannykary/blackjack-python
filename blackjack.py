@@ -151,14 +151,19 @@ def score(hand):
     else:
       score += int(rank)
 
+  # if score > 21 and number_of_aces > 0:
+  #   i = number_of_aces
+  #   while i > 0:
+  #     score -= 10
+  #     if score < 21:
+  #       break
+  #     else:
+  #       i -= 1
   if score > 21 and number_of_aces > 0:
-    i = number_of_aces
-    while i > 0:
-      score -= 10
+    for i in range(number_of_aces, 0, -1):
+      score -=10
       if score < 21:
         break
-      else:
-        i -= 1
 
   return score
 
