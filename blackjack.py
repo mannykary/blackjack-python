@@ -146,10 +146,19 @@ def score(hand):
     if rank in ('J', 'Q', 'K'):
       score += 10
     elif rank == 'A':
-        score += 11  # need to add in logic to change ace value from 11 to 1 as needed.
+        score += 11
         number_of_aces += 1
     else:
       score += int(rank)
+
+  if score > 21 and number_of_aces > 0:
+    i = number_of_aces
+    while i > 0:
+      score -= 10
+      if score < 21:
+        break
+      else:
+        i -= 1
 
   return score
 
